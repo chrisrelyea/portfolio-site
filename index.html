@@ -42,7 +42,7 @@
       flex: 1;
       padding: 0px 30px 30px 30px;
       box-sizing: border-box;
-      max-width: 500px;
+      max-width: 530px;
       /* adjust this value to your preference */
 
     }
@@ -111,16 +111,16 @@
   <!-- Header spans full width -->
   <div class="header">
     <div class="name">chris relyea</div>
-    <div class="tagline">music technology</div>
+    <div class="tagline">music technology @ stanford ccrma</div>
   </div>
 
   <!-- Main layout: sidebar + content -->
   <div class="main">
     <div class="sidebar">
-      <button class="nav-button" onclick="loadPage('bio.html', this)">Bio</button>
-      <button class="nav-button" onclick="loadPage('work.html', this)">Work</button>
-      <button class="nav-button" onclick="loadPage('projects.html', this)">Projects</button>
-      <button class="nav-button" onclick="loadPage('music.html', this)">Music</button>
+      <button class="nav-button active" onclick="loadPage('bio.html', this)">about</button>
+      <button class="nav-button" onclick="loadPage('work.html', this)">work/edu</button>
+      <button class="nav-button" onclick="loadPage('projects.html', this)">projects</button>
+      <button class="nav-button" onclick="loadPage('music.html', this)">music</button>
 
       <div class="social-buttons">
         <a class="social-button" href="https://www.linkedin.com/in/chris-relyea" target="_blank">linkedin</a>
@@ -155,7 +155,15 @@
 
       // Add active class to the clicked button
       button.classList.add('active');
+
     }
+
+    window.onload = () => {
+      const firstButton = document.querySelector('.nav-button');
+      if (firstButton) {
+        loadPage('bio.html', firstButton);
+      }
+    };
   </script>
 
 
