@@ -1,31 +1,164 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Christopher Relyea</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: left;
-      padding: 30px;
+      font-family: 'Noto Sans', sans-serif;
+      margin: 0;
+      padding: 0;
     }
+
     .header {
       display: flex;
       align-items: baseline;
+      text-align: left;
       gap: 10px;
+      padding: 20px 0 10px 40px;
     }
+
     .name {
       font-size: 2em;
       font-weight: bold;
     }
+
     .tagline {
       font-size: 1.2em;
+      color: #666;
+    }
+
+    .main {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 200px;
+      padding: 0 0 0 40px;
+      box-sizing: border-box;
+    }
+
+    .content {
+      flex: 1;
+      padding: 0px 30px 30px 30px;
+      box-sizing: border-box;
+      max-width: 500px;
+      /* adjust this value to your preference */
+
+    }
+
+    .content p {
+      margin-top: 0;
+    }
+
+    .nav-button.active {
+      /* darker gray for active button */
+      font-weight: bold;
+      background: orange;
+      color: white;
+      /* optional to emphasize */
+    }
+
+    .nav-button {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1em;
+      text-align: left;
+      padding: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .nav-button:hover {
+      font-weight: bold;
+      color: orange
+        /* font color on hover */
+
+    }
+
+    .nav-button.active:hover {
+      font-weight: bold;
+      color: white
+        /* font color on hover */
+
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .social-button:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
+
+  <!-- Header spans full width -->
   <div class="header">
     <div class="name">chris relyea</div>
     <div class="tagline">music technology</div>
   </div>
+
+  <!-- Main layout: sidebar + content -->
+  <div class="main">
+    <div class="sidebar">
+      <button class="nav-button" onclick="loadPage('bio.html', this)">Bio</button>
+      <button class="nav-button" onclick="loadPage('work.html', this)">Work</button>
+      <button class="nav-button" onclick="loadPage('projects.html', this)">Projects</button>
+      <button class="nav-button" onclick="loadPage('music.html', this)">Music</button>
+
+      <div class="social-buttons">
+        <a class="social-button" href="https://www.linkedin.com/in/chris-relyea" target="_blank">linkedin</a>
+        <a class="social-button" href="https://github.com/chrisrelyea" target="_blank">github</a>
+        <a class="social-button" href="mailto:relyea@stanford.edu">mail</a>
+      </div>
+
+
+    </div>
+
+    <div class="content" id="content">
+      <p>Select a section to view its content.</p>
+    </div>
+  </div>
+
+  <script>
+    function loadPage(page, button) {
+      // Fetch and load page content
+      fetch(page)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('content').innerHTML = html;
+        })
+        .catch(err => {
+          document.getElementById('content').innerHTML = '<p>Error loading page.</p>';
+        });
+
+      // Remove active class from all nav buttons
+      document.querySelectorAll('.nav-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Add active class to the clicked button
+      button.classList.add('active');
+    }
+  </script>
+
+
 </body>
+
 </html>
