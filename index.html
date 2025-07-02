@@ -51,6 +51,10 @@
       margin-top: 0;
     }
 
+     .content h3 {
+      margin-top: 0;
+    }
+
     .nav-button.active {
       /* darker gray for active button */
       font-weight: bold;
@@ -68,6 +72,16 @@
       padding: 8px;
       cursor: pointer;
       width: 100%;
+      color: inherit;
+      -webkit-appearance: none;
+      /* iOS Safari */
+      -moz-appearance: none;
+      /* Firefox */
+      appearance: none;
+      background-color: transparent;
+      /* Prevent gray iOS tap bg */
+      -webkit-tap-highlight-color: transparent;
+      /* Prevent blue bg tap */
     }
 
     .nav-button:hover {
