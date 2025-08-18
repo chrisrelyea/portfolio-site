@@ -20,13 +20,14 @@
     }
 
     .title-block {
+      display: flex;
+      align-items: baseline;  /* keeps the tagline aligned with the name's baseline */
+      gap: 10px;              /* space between name + tagline */
+    
       padding: 20px 40px;
-  
-      /* background image behind just the text */
       background: url("background.jpg") center/cover no-repeat;
-  
-      color: white; /* make text readable */
-      border-radius: 8px; /* optional, rounded corners */
+      color: white;
+      border-radius: 8px;
     }
 
     .name {
@@ -36,7 +37,7 @@
 
     .tagline {
       font-size: 1.2em;
-      color: #666;
+      color: #eee;
     }
 
     .main {
