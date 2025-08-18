@@ -16,10 +16,17 @@
       text-align: left;
       gap: 10px;
       padding: 20px 0 10px 40px;
-      background-image: url("background.jpg");
-      background-size: cover;
-      background-position: center;
-      color: white;
+
+    }
+
+    .title-block {
+      padding: 20px 40px;
+  
+      /* background image behind just the text */
+      background: url("background.jpg") center/cover no-repeat;
+  
+      color: white; /* make text readable */
+      border-radius: 8px; /* optional, rounded corners */
     }
 
     .name {
@@ -127,9 +134,11 @@
 
   <!-- Header spans full width -->
   <div class="header">
+  <div class="title-block">
     <div class="name">chris relyea</div>
     <div class="tagline">music technology @ stanford ccrma</div>
   </div>
+</div>
 
   <!-- Main layout: sidebar + content -->
   <div class="main">
