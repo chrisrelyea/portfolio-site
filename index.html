@@ -16,19 +16,15 @@
       text-align: left;
       gap: 10px;
       padding: 20px 0 10px 40px;
-
     }
 
     .title-block {
       display: flex;
-      align-items: baseline;  /* keeps the tagline aligned with the name's baseline */
-      gap: 10px;              /* space between name + tagline */
-    
+      align-items: baseline;
+      gap: 10px;
       padding: 20px 40px;
       background: url("background2.jpg") center/cover no-repeat;
       color: white;
-      /* text-shadow: 0 1px 2px rgba(0,0,0,0.6); */
-
     }
 
     .name {
@@ -49,20 +45,15 @@
       width: 200px;
       padding: 0 0 0 40px;
       box-sizing: border-box;
-
     }
 
     .content {
       flex: 1;
-      padding: 30px; /* increased padding all around */
+      padding: 30px;
       box-sizing: border-box;
       max-width: 700px;
-      margin-left: 20px; /* space between sidebar and content */
-      background-color: #ececec; /* slightly darker off-white / light gray */
-
-
-
-
+      margin-left: 20px;
+      background-color: #ececec;
     }
 
     .content p {
@@ -73,12 +64,12 @@
       margin-top: 0;
     }
 
-    .nav-button.active {
-      /* darker gray for active button */
-      font-weight: bold;
-      background: #001f3f; /* text turns dark blue on hover */
-      /* optional to emphasize */
-      color: white;
+    .content section {
+      display: none;
+    }
+
+    .content section.active {
+      display: block;
     }
 
     .nav-button {
@@ -91,42 +82,33 @@
       cursor: pointer;
       width: 100%;
       color: #333;
-      -webkit-appearance: none;
-      /* iOS Safari */
-      -moz-appearance: none;
-      /* Firefox */
       appearance: none;
       background-color: transparent;
-      /* Prevent gray iOS tap bg */
-      -webkit-tap-highlight-color: transparent;
-      /* Prevent blue bg tap */
+    }
+
+    .nav-button.active {
+      font-weight: bold;
+      background: #001f3f;
+      color: white;
     }
 
     .nav-button:hover {
       font-weight: bold;
-      color: #003366; /* text turns dark blue on hover */
-        /* font color on hover */
-
+      color: #003366;
     }
 
     .nav-button.active:hover {
-      font-weight: bold;
-      color: white
-        /* font color on hover */
-
+      color: white;
     }
 
     .social-buttons {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       margin-top: 20px;
     }
 
     .social-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       color: #333;
@@ -140,68 +122,197 @@
 
 <body>
 
-  <!-- Header spans full width -->
   <div class="header">
-  <div class="title-block">
-    <div class="name">chris relyea</div>
-    <div class="tagline">music technology @ stanford ccrma</div>
+    <div class="title-block">
+      <div class="name">chris relyea</div>
+      <div class="tagline">music technology @ stanford ccrma</div>
+    </div>
   </div>
-</div>
 
-  <!-- Main layout: sidebar + content -->
   <div class="main">
     <div class="sidebar">
-      <button class="nav-button active" onclick="loadPage('bio.html', this)">about</button>
-      <button class="nav-button" onclick="loadPage('work.html', this)">resume</button>
-      <button class="nav-button" onclick="loadPage('projects.html', this)">projects</button>
-      <button class="nav-button" onclick="loadPage('music.html', this)">music</button>
+      <button class="nav-button active" onclick="showSection('about', this)">about</button>
+      <button class="nav-button" onclick="showSection('resume', this)">resume</button>
+      <button class="nav-button" onclick="showSection('projects', this)">projects</button>
+      <button class="nav-button" onclick="showSection('music', this)">music</button>
 
       <div class="social-buttons">
         <a class="social-button" href="https://www.linkedin.com/in/chris-relyea" target="_blank">linkedin</a>
         <a class="social-button" href="https://github.com/chrisrelyea" target="_blank">github</a>
         <a class="social-button" href="mailto:relyea@stanford.edu">mail</a>
+        <a class="social-button" href="https://www.instagram.com/cersynths" target="_blank">instagram</a>
       </div>
-      <a class="social-button" href="https://www.instagram.com/cersynths">instagram</a>
-
-
-
     </div>
 
     <div class="content" id="content">
-      <p>Select a section to view its content.</p>
+      <!-- About -->
+      <section id="about" class="active">
+        <p>Welcome! I'm Chris, a music technologist, computer scientist, synth nerd, and freelance french horn player. I'm from
+     Rhode Island, and recently finished
+     two bachelor's degrees in computer science and french horn performance at Boston University. I'm currently a MA
+     student in Music, Science, and Technology at Stanford University's
+     Center for Computer Research in Music and Acoustics (CCRMA).
+</p>
+<p>
+     <strong>Current work: </strong>R&D Engineer Intern at Bose - Framingham, MA
+
+<p> Feel free to look around the site and learn about my experiences, projects, and music, or get in contact with me
+     through the links on the left.
+</p>
+
+</p>
+      </section>
+
+      <!-- Resume -->
+      <!-- Resume -->
+<section id="resume">
+  <h3>Education</h3>
+
+  <p>
+    <strong>Stanford University</strong><br>
+    MA Music, Science & Technology<br>
+    2025 – 2027
+  </p>
+
+  <p>
+    <strong>Boston University</strong><br>
+    BA Computer Science<br>
+    BM French Horn Performance<br>
+    2021 – 2025
+  </p>
+
+  <h3>Work Experience</h3>
+
+  <p>
+    <strong>Research and Development Engineer Intern</strong> @ Bose<br>
+    Summer 2025<br>
+    • Supporting Rapid Design Engineering team in prototyping future products<br>
+    <i>Swift, Raspberry Pi, OpenAI API, Godot</i>
+  </p>
+
+  <p>
+    <strong>Data Pipeline Engineer</strong> @
+    <a href="https://www.ctpathways.com/">CommonTime Pathways</a><br>
+    2024 – Present<br>
+    • Developed scalable web-scraping pipeline for higher education music program data collection<br>
+    • Implemented admin tools for data management<br>
+    <i>Python, JavaScript, TypeScript, HTML, Firebase</i>
+  </p>
+
+  <p>
+    <strong>Software Engineer Intern</strong> @ Amica Mutual Insurance<br>
+    Summer 2023<br>
+    • Debugged and optimized company software used by employees and policyholders<br>
+    • Led initiative to clean up script parameters and other backend developer tools, reducing overall technical debt<br>
+    <i>Java, Gosu, XML, Jira</i>
+  </p>
+</section>
+
+
+
+      <!-- Projects -->
+      <section id="projects">
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <p>
+      <strong><a href="https://colab.research.google.com/drive/1uyONUl9P51PuvWyRXfuVWNhOHDrXrdf7">FXNet: CNN for Audio
+          Effects</a></strong><br>
+      Final project for DS 340: Intro to Machine Learning and AI at Boston University, Spring 2025. An audio ML
+      experiment which can label clips of various musical instruments based on
+      which audio effects (Distortion, Chorus, Delay, Reverb). Check out the <a href="340_paper.pdf"><em>paper</em></a>
+      and <a href="340_final_slides.pdf"><em>slide deck</em></a>.
+    </p>
+    <img src="fxnet1.png" alt="FXNet project image" style="width:250px;">
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <img src="midihero.png" alt="FXNet project image" style="width:200px;">
+    <p style="text-align:right;">
+      <strong><a href=https://github.com/chrisrelyea/MidiHero>MidiHero</a></strong><br>
+      In-development JUCE plugin that allows a Guitar Hero controller to be used as a MIDI input device. In its current
+      form, uses HIDAPI to detect Xbox 360 GH controller.
+      Allows the user control over which MIDI event is triggered by each fret button. Planned work includes revamped UI
+      and support for more controllers.
+      <br>
+    </p>
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <p>
+      <strong><a href=https://github.com/chrisrelyea/ALF>All-Purpose Lofi Facilitator (ALF)</a></strong><br>
+      JUCE VST/AU plugin for "lofi" effects, simulating physical audio formats. This was undertaken as a personal
+      research project and presented for admission into music technology
+      graduate programs. ALF allows the user to downsample/bitcrush an audio stream to create distorted, lofi signals.
+      The design, process, and some discussion of the lofi movement as an
+      aesthetic trend are presented in the <a href="alfpaper.pdf"><em>companion paper</em></a>. <br>
+    </p>
+    <img src="alf.png" alt="FXNet project image" style="width:200px;">
+
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+
+    <img src="spin.jpeg" alt="FXNet project image" style="width:250px;">
+
+    <p style="text-align:right;">
+      <strong><a href=https://github.com/makbu324/Spin>Spin</a></strong><br>
+      Album cover image recognition Android app with Spotify API integration. Intended as a mobile music shopping
+      assistant. The user can take a picture of a physical album and will be provided
+      with the Spotify listing, accompished via an API chain which includes Google Cloud Vision. The Kotlin-based app
+      also
+      includes a store locator map and "my list" tool for the user's personal collection of records.<br>
+      <i>(with: Jonah Musher-Eizenman, Wai Lun Mak)</i><br>
+
+    </p>
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+
+    <p>
+      <strong><a href=https://github.com/chrisrelyea/pydrummer>PyDrummer</a></strong><br>
+      Simple drum machine made with Python and the Pygame library. 16 beats, three sounds, adjustable BPM.
+    </p>
+    <img src="drummer.png" alt="FXNet project image" style="width:225px;">
+
+  </div>
+
+</section>
+
+      <!-- Music -->
+      <section id="music">
+        <h3>Coursework</h3>
+<p><i>interruption</i></p>
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2167323030&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/christopher-relyea-765048668" title="Christopher Relyea" target="_blank" style="color: #cccccc; text-decoration: none;">Christopher Relyea</a> · <a href="https://soundcloud.com/christopher-relyea-765048668/interruption" title="interruption" target="_blank" style="color: #cccccc; text-decoration: none;">interruption</a></div>
+<p>A work in 5.1 created and mixed with Pro Tools completed as a final project for MT435: Composing with Electronic Sounds and Computers at Boston University, Spring 2025.</p>
+
+
+<h3>CER</h3>
+
+<p>I make electronic/synthwave music online and post it under the name CER. Right now, most of it is kept on <a href= https://soundcloud.com/cermakesmusic>SoundCloud</a>:</p>
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2165815242&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/cermakesmusic" title="C E R" target="_blank" style="color: #cccccc; text-decoration: none;">C E R</a> · <a href="https://soundcloud.com/cermakesmusic/0906-sketch" title="0906 sketch" target="_blank" style="color: #cccccc; text-decoration: none;">0906 sketch</a></div>
+
+<p>I also post some music-related things on my <a href=https://www.instagram.com/cersynths>Instagram page</a></p>
+<br>
+<p>A more organized release on other streaming services is coming soon.</p>
+
+
+      </section>
     </div>
   </div>
 
   <script>
-    function loadPage(page, button) {
-      // Fetch and load page content
-      fetch(page)
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('content').innerHTML = html;
-        })
-        .catch(err => {
-          document.getElementById('content').innerHTML = '<p>Error loading page.</p>';
-        });
+    function showSection(sectionId, button) {
+      // hide all sections
+      document.querySelectorAll('.content section').forEach(sec => sec.classList.remove('active'));
+      // show selected section
+      document.getElementById(sectionId).classList.add('active');
 
-      // Remove active class from all nav buttons
-      document.querySelectorAll('.nav-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      // Add active class to the clicked button
+      // update nav buttons
+      document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-
     }
-
-    window.onload = () => {
-      const firstButton = document.querySelector('.nav-button');
-      if (firstButton) {
-        loadPage('bio.html', firstButton);
-      }
-    };
   </script>
-
 
 </body>
 
