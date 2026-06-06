@@ -133,7 +133,7 @@
   <div class="main">
     <div class="sidebar">
       <button class="nav-button active" onclick="showSection('about', this)">about</button>
-      <button class="nav-button" onclick="showSection('resume', this)">resume</button>
+      <button class="nav-button" onclick="showSection('resume', this)">cv</button>
       <button class="nav-button" onclick="showSection('projects', this)">projects</button>
       <button class="nav-button" onclick="showSection('music', this)">music</button>
       <button class="nav-button" onclick="showSection('recording', this)">recording</button>
@@ -198,11 +198,23 @@
   </div>
 
   <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
+    <img src="stellr.png" style="width:44px; height:44px; object-fit:contain; flex-shrink:0; filter:invert(1);">
+    <p style="margin:0;">
+      <strong>Contract Software Developer</strong> @ <a href="https://www.stellraudio.com/" target="_blank">Stellr Audio Labs</a><br>
+      Apr 2026 – Present<br>
+      • Development for Ableton Live gamepad control application<br>
+      <i>Python, JavaScript</i>
+
+    </p>
+  </div>
+
+  <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
     <img src="ccrma.png" style="width:44px; height:44px; object-fit:contain; flex-shrink:0;">
     <p style="margin:0;">
       <strong>Research Assistant, Embedded Audio Developer</strong> @ Stanford University<br>
       Oct 2025 – Present<br>
       • DSP Bluetooth firmware development for a medical acoustic monitoring device in collaboration with Stanford Medicine/CCRMA<br>
+      <i>C, Nordic, Bluetooth LE</i>
     </p>
   </div>
 
@@ -212,7 +224,7 @@
       <strong>Research and Development Engineer Intern</strong> @ Bose<br>
       Summer 2025<br>
       • Supporting Rapid Design Engineering team in prototyping future products<br>
-      <i>Swift, Raspberry Pi, OpenAI API, Godot</i>
+      <i>Swift, Raspberry Pi, Godot</i>
     </p>
   </div>
 
@@ -233,76 +245,144 @@
 
       <!-- Projects -->
       <section id="projects">
+
+  <h3>Ongoing</h3>
+
+  <!-- 1: image left -->
   <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
     <img src="tam1.jpg" alt="TAM wearable device" style="width:175px;">
     <p style="text-align:right;">
       <strong>Tracheal Acoustic Monitoring (TAM)</strong><br>
+
       Wearable device for real-time tracheal breath sound capture, developed in collaboration with Stanford Medicine and CCRMA.
-      Writing Bluetooth audio firmware for continuous acoustic monitoring, and assisting with model training for automated breath sound detection and classification.
+      Writing Bluetooth audio firmware for continuous acoustic monitoring, and assisting with model training for automated breath sound detection and classification.<br>
+                              <i><b>(Research Leads: Chris Chafe, CCRMA and Dr. Matthew Muffly, Stanford Medicine)</b></i><br>
+
     </p>
   </div>
 
+  <!-- 2: image right -->
   <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
     <p>
-      <strong><a href="https://colab.research.google.com/drive/1uyONUl9P51PuvWyRXfuVWNhOHDrXrdf7">FXNet: CNN for Audio
-          Effects</a></strong><br>
-      Final project for DS 340: Intro to Machine Learning and AI at Boston University, Spring 2025. An audio ML
-      experiment which can label clips of various musical instruments based on
-      which audio effects (Distortion, Chorus, Delay, Reverb). Check out the <a href="340_paper.pdf"><em>paper</em></a>
-      and <a href="340_final_slides.pdf"><em>slide deck</em></a>.
+      <strong>BlowCoder</strong><br>
+      An exploration of spectral analysis-based mouth cavity modeling for real-time control of expressive wind instrument synthesis. Built with Teensy microcontroller, sound design with Max/MSP. Plays like an EWI/vocoder hybrid. Initially completed for MUSIC 250A: Physical Interaction Design for 
+      Music (Prof. Sasha Leitman), Spring 2026 at Stanford CCRMA. Currently being redesigned with a custom PCB and improved sensor array for more accurate mouth cavity modeling and enhanced playability.
     </p>
-    <img src="fxnet1.png" alt="FXNet project image" style="width:250px;">
+    <img src="blowcoder1.png" alt="BlowCoder project" style="width:200px;">
   </div>
 
+  <h3 style="margin-top:24px;">2026</h3>
+
+  <!-- 3: image left -->
   <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <img src="midihero.png" alt="FXNet project image" style="width:200px;">
+    <img src="ocarina.png" alt="Ocarina Synthesizer" style="width:200px;">
     <p style="text-align:right;">
+      <strong><a href="ocarina.mp4">Physical Modeling Ocarina Synthesizer</a></strong><br>
+      Part of a research project investigating existing physical modeling techniques for wind instrument synthesis. An interactive JUCE application for full ocarina design and control with responsive animation and a sound synthesis pipeline based on air jets and a Helmholtz resonator. Final project for CS 448Z: Physically Based Animation and Sound at Stanford University (Prof. Doug James), Spring 2026.
+    </p>
+  </div>
+
+  <!-- 4: image right -->
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <p>
+      <strong><a href="422paper.pdf" target="_blank">Entropy Coding for Neural Audio Codec</a></strong><br>
+
+      Contribution to a group final project for MUSIC 422: Perceptual Audio Coding (Prof. Marina Bosi), Winter 2026 at Stanford CCRMA. Implemented an entropy coding module for a neural audio codec architecture based on prediction residuals, investigating the impact of different coding strategies on compression efficiency and audio quality. The project includes a listening test to evaluate perceptual differences between coding approaches.
+                  <br><i><b>(with: Niccolo Abate, Gabriel Soule, CCRMA)</b></i>
+
+    </p>
+    <div style="width:250px; flex-shrink:0; overflow:hidden; border-radius:4px;">
+      <img src="listeningtest.png" alt="Listening Test" style="width:250px; display:block;">
+      <img src="422spec.png" alt="Spectrogram" style="width:250px; display:block;">
+    </div>
+  </div>
+
+  <!-- 5: image left -->
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <div style="width:225px; flex-shrink:0; overflow:hidden; border-radius:4px;">
+      <img src="rhythm.png" alt="Rhythm" style="width:225px; display:block;">
+      <img src="samples.png" alt="Samples" style="width:225px; display:block;">
+    </div>
+    <p style="text-align:right;">
+      <strong><a href="251paper.pdf" target="_blank">Psychoacoustics of Humanization for Sample-Based Drum Grooves</a></strong><br>
+      Research study examining the psychoacoustic factors that contribute to perceived humanization in sample-based drum programming. Studies the roles of timing microvariations, velocity nuance, and spectral consistency in distinguishing machine-quantized grooves from human performances. Completed for MUSIC 251: Psychophysics and Music Cognition (Prof. Takako Fujioka), Winter 2026 at Stanford CCRMA.
+    </p>
+  </div>
+
+  <h3 style="margin-top:24px;">2025</h3>
+
+  <!-- 6: image right -->
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <p>
+      <strong><a href="https://ccrma.stanford.edu/~relyea/220a/fp/index.html" target="_blank">"ChucKed-On Bach"</a></strong><br>
+      A project with the ChucK programming language to sequence MIDI files of multi-part Bach compositions. Inspired by Wendy Carlos' "Switched-On Bach." Completed as a final project for MUSIC 220A: Fundamentals of Computer-Generated Sound (Prof. Chris Chafe), Fall 2025 at Stanford CCRMA.
+    </p>
+    <img src="bach.png" alt="ChucKed On Bach project" style="width:200px;">
+  </div>
+
+  <!-- 7: image left -->
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <img src="fxnet1.png" alt="FXNet project image" style="width:250px;">
+    <p style="text-align:right;">
+      <strong><a href="https://colab.research.google.com/drive/1uyONUl9P51PuvWyRXfuVWNhOHDrXrdf7">FXNet: CNN for Audio Effects</a></strong><br>
+      Final project for DS 340: Intro to Machine Learning and AI at Boston University, Spring 2025. An audio ML
+      experiment which can label clips of various musical instruments based on
+      which audio effects (Distortion, Chorus, Delay, Reverb). Check out the <a href="340_paper.pdf" target="_blank"><em>paper</em></a>
+      and <a href="340_final_slides.pdf" target="_blank"><em>slide deck</em></a>.
+    </p>
+  </div>
+
+  <!-- 8: image right -->
+  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+    <p>
       <strong><a href=https://github.com/chrisrelyea/MidiHero>MidiHero</a></strong><br>
       In-development JUCE plugin that allows a Guitar Hero controller to be used as a MIDI input device. In its current
       form, uses HIDAPI to detect Xbox 360 GH controller.
       Allows the user control over which MIDI event is triggered by each fret button. Planned work includes revamped UI
       and support for more controllers.
-      <br>
     </p>
+    <img src="midihero.png" alt="MidiHero project image" style="width:200px;">
   </div>
 
+  <h3 style="margin-top:24px;">2024</h3>
+
+  <!-- 9: image left -->
   <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <p>
+    <img src="alf.png" alt="ALF project image" style="width:200px;">
+    <p style="text-align:right;">
       <strong><a href=https://github.com/chrisrelyea/ALF>All-Purpose Lofi Facilitator (ALF)</a></strong><br>
       JUCE VST/AU plugin for "lofi" effects, simulating physical audio formats. This was undertaken as a personal
       research project and presented for admission into music technology
       graduate programs. ALF allows the user to downsample/bitcrush an audio stream to create distorted, lofi signals.
       The design, process, and some discussion of the lofi movement as an
-      aesthetic trend are presented in the <a href="alfpaper.pdf"><em>companion paper</em></a>. <br>
+      aesthetic trend are presented in the <a href="alfpaper.pdf"><em>companion paper</em></a>.
     </p>
-    <img src="alf.png" alt="FXNet project image" style="width:200px;">
-
   </div>
 
+  <h3 style="margin-top:24px;">2023</h3>
+
+  <!-- 10: image right -->
   <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-
-    <img src="spin.jpeg" alt="FXNet project image" style="width:250px;">
-
-    <p style="text-align:right;">
+    <p>
       <strong><a href=https://github.com/makbu324/Spin>Spin</a></strong><br>
+
       Album cover image recognition Android app with Spotify API integration. Intended as a mobile music shopping
       assistant. The user can take a picture of a physical album and will be provided
-      with the Spotify listing, accompished via an API chain which includes Google Cloud Vision. The Kotlin-based app
-      also
-      includes a store locator map and "my list" tool for the user's personal collection of records.<br>
-      <i>(with: Jonah Musher-Eizenman, Wai Lun Mak)</i><br>
+      with the Spotify listing, accomplished via an API chain which includes Google Cloud Vision. The Kotlin-based app
+      also includes a store locator map and "my list" tool for the user's personal collection of records.<br>
+            <i><b>(with: Jonah Musher-Eizenman, Wai Lun Mak, Boston University)</b></i>
 
     </p>
+    <img src="spin.jpeg" alt="Spin project image" style="width:250px;">
   </div>
 
+  <!-- 11: image left -->
   <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-
-    <p>
+    <img src="drummer.png" alt="PyDrummer project image" style="width:225px;">
+    <p style="text-align:right;">
       <strong><a href=https://github.com/chrisrelyea/pydrummer>PyDrummer</a></strong><br>
       Simple drum machine made with Python and the Pygame library. 16 beats, three sounds, adjustable BPM.
     </p>
-    <img src="drummer.png" alt="FXNet project image" style="width:225px;">
-
   </div>
 
 </section>
