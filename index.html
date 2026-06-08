@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>chris relyea</title>
   <link rel="preload" as="image" href="background2.jpg">
   <style>
@@ -9,8 +10,8 @@
       font-family: 'Noto Sans', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #121212;
-      color: #ddd;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     .header {
@@ -56,7 +57,7 @@
       box-sizing: border-box;
       max-width: 700px;
       margin-left: 20px;
-      background-color: #1e1e1e;
+      background-color: #ececec;
     }
 
     .content p {
@@ -84,20 +85,20 @@
       padding: 8px;
       cursor: pointer;
       width: 100%;
-      color: #bbb;
+      color: #333;
       appearance: none;
       background-color: transparent;
     }
 
     .nav-button.active {
       font-weight: bold;
-      background: #1a3a5c;
+      background: #001f3f;
       color: white;
     }
 
     .nav-button:hover {
       font-weight: bold;
-      color: #7eb8e8;
+      color: #003366;
     }
 
     .nav-button.active:hover {
@@ -114,20 +115,11 @@
     .social-button {
       text-decoration: none;
       font-weight: bold;
-      color: #bbb;
+      color: #333;
     }
 
     .social-button:hover {
       text-decoration: underline;
-      color: #7eb8e8;
-    }
-
-    .content a {
-      color: #7eb8e8;
-    }
-
-    .content a:hover {
-      color: #aad4f5;
     }
 
   </style>
@@ -210,7 +202,7 @@
   </div>
 
   <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
-    <img src="stellr.png" style="width:44px; height:44px; object-fit:contain; flex-shrink:0;">
+    <img src="stellr.png" style="width:44px; height:44px; object-fit:contain; flex-shrink:0; filter:invert(1);">
     <p style="margin:0;">
       <strong>Contract Software Developer</strong> @ <a href="https://www.stellraudio.com/" target="_blank">Stellr Audio Labs</a><br>
       Apr 2026 – Present<br>
