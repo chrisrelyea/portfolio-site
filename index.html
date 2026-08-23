@@ -2,30 +2,38 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>chris relyea</title>
+  <link rel="preload" href="fonts/noto-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    @font-face {
+      font-family: 'Noto Sans';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('fonts/noto-sans-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+        U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     body {
-      font-family: 'Noto Sans', sans-serif;
+      font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
     }
 
-    .header {
-      display: flex;
-      align-items: baseline;
-      text-align: left;
-      gap: 10px;
-      padding: 20px 0 10px 40px;
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
-    .title-block {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      padding: 20px 40px;
+    /* full-bleed banner */
+    .header {
+      padding: 22px 40px;
       background:
         linear-gradient(to bottom, rgba(0, 0, 56, 0) 0%, rgba(0, 0, 56, 0) 77.15%, rgba(0, 0, 56, 0.104) 100%),
         radial-gradient(38.13% 85% at 99.9% 102.27%, rgba(255, 25, 0, 0.375) 0%, rgba(255, 25, 0, 0) 100%),
@@ -36,6 +44,13 @@
         rgb(6, 0, 29) 67.61%, rgb(15, 0, 28) 73.24%, rgb(24, 0, 27) 78.87%, rgb(34, 0, 27) 84.51%,
         rgb(46, 0, 26) 90.14%, rgb(58, 0, 24) 95.77%, rgb(67, 0, 23) 100%);
       color: white;
+    }
+
+    .title-block {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 10px;
     }
 
     .name {
@@ -54,7 +69,7 @@
 
     .sidebar {
       width: 200px;
-      padding: 0 0 0 40px;
+      padding: 30px 0 0 40px;
       box-sizing: border-box;
     }
 
@@ -83,11 +98,86 @@
       display: block;
     }
 
+    /* about */
+    .bio {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .bio-photo {
+      width: 120px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .bio-photo img {
+      max-width: none;
+      width: 160px;
+      display: block;
+    }
+
+    /* cv entries */
+    .job {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .job img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .job p {
+      margin: 0;
+    }
+
+    /* project rows */
+    .proj {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stack {
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .stack img {
+      display: block;
+    }
+
+    .rec {
+      margin-bottom: 28px;
+    }
+    .rec-title {
+      font-size: 1.05em;
+    }
+    .rec-meta {
+      font-size: 0.85em;
+      color: #555;
+      margin: 3px 0 8px;
+    }
+    .rec audio {
+      width: 100%;
+      max-width: 520px;
+    }
+
     .nav-button {
       display: block;
       background: none;
       border: none;
       font-size: 1em;
+      font-family: inherit;
       text-align: left;
       padding: 8px;
       cursor: pointer;
@@ -129,6 +219,74 @@
       text-decoration: underline;
     }
 
+    /* --- narrow screens --- */
+    @media (max-width: 760px) {
+      .header {
+        padding: 18px 20px;
+      }
+
+      .name {
+        font-size: 1.6em;
+      }
+
+      .tagline {
+        font-size: 1em;
+      }
+
+      .main {
+        display: block;
+      }
+
+      .sidebar {
+        width: auto;
+        padding: 12px 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+
+      .nav-button {
+        display: inline-block;
+        width: auto;
+        padding: 8px 12px;
+      }
+
+      .social-buttons {
+        width: 100%;
+        margin-top: 12px;
+        padding-left: 8px;
+      }
+
+      .content {
+        max-width: none;
+        margin-left: 0;
+        margin-top: 16px;
+        padding: 20px;
+      }
+
+      /* stack rows, always image above text */
+      .proj {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .proj.rev {
+        flex-direction: column-reverse;
+      }
+
+      .stack {
+        width: auto !important;
+      }
+    }
+
+    /* phones: the bio text column gets too narrow beside the photo */
+    @media (max-width: 480px) {
+      .bio {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 
@@ -143,11 +301,11 @@
 
   <div class="main">
     <div class="sidebar">
-      <button class="nav-button active" onclick="showSection('about', this)">about</button>
-      <button class="nav-button" onclick="showSection('resume', this)">cv</button>
-      <button class="nav-button" onclick="showSection('projects', this)">projects</button>
-      <button class="nav-button" onclick="showSection('music', this)">music</button>
-      <button class="nav-button" onclick="showSection('recording', this)">recording</button>
+      <button class="nav-button active" data-section="about">about</button>
+      <button class="nav-button" data-section="resume">cv</button>
+      <button class="nav-button" data-section="projects">projects</button>
+      <button class="nav-button" data-section="music">music</button>
+      <button class="nav-button" data-section="recording">recording</button>
 
       <div class="social-buttons">
         <a class="social-button" href="https://www.linkedin.com/in/chris-relyea" target="_blank">linkedin</a>
@@ -160,9 +318,9 @@
     <div class="content" id="content">
       <!-- About -->
       <section id="about" class="active">
-        <div style="display:flex; align-items:flex-start; gap:20px;">
-          <div style="width:120px; flex-shrink:0; overflow:hidden; border-radius:4px;">
-            <img src="me.jpg" alt="Chris Relyea" style="width:160px; display:block;">
+        <div class="bio">
+          <div class="bio-photo">
+            <img src="me.jpg" alt="Chris Relyea" width="640" height="427">
           </div>
           <div>
             <p>Welcome! I'm Chris, a music technologist, computer scientist, synth nerd, and freelance french horn player. I'm from
@@ -199,18 +357,18 @@
   <h3>Work Experience</h3>
 
 
-  <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
-    <img src="nintendo.jpeg" style="width:44px; height:44px; object-fit:contain; flex-shrink:0;">
-    <p style="margin:0;">
+  <div class="job">
+    <img src="nintendo.jpeg" width="132" height="96" loading="lazy" decoding="async">
+    <p>
       <strong>Audio Software Engineer Intern</strong> @ Nintendo Technology Development (NTD)<br>
       Summer 2026<br>
       • Audio firmware optimization<br>
     </p>
   </div>
 
-  <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
-    <img src="stellr.png" style="width:44px; height:44px; object-fit:contain; flex-shrink:0; filter:invert(1);">
-    <p style="margin:0;">
+  <div class="job">
+    <img src="stellr.png" style="filter:invert(1);" width="132" height="81" loading="lazy" decoding="async">
+    <p>
       <strong>Contract Software Developer</strong> @ <a href="https://www.stellraudio.com/" target="_blank">Stellr Audio Labs</a><br>
       Apr 2026 – Present<br>
       • Development for Ableton Live gamepad control application<br>
@@ -219,9 +377,9 @@
     </p>
   </div>
 
-  <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
-    <img src="ccrma.png" style="width:44px; height:44px; object-fit:contain; flex-shrink:0;">
-    <p style="margin:0;">
+  <div class="job">
+    <img src="ccrma.png" width="132" height="87" loading="lazy" decoding="async">
+    <p>
       <strong>Research Assistant, Embedded Audio Developer</strong> @ Stanford University<br>
       Oct 2025 – Present<br>
       • DSP Bluetooth firmware development for a medical acoustic monitoring device in collaboration with Stanford Medicine/CCRMA<br>
@@ -229,9 +387,9 @@
     </p>
   </div>
 
-  <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
-    <img src="bose.jpg" style="width:44px; height:44px; object-fit:contain; flex-shrink:0;">
-    <p style="margin:0;">
+  <div class="job">
+    <img src="bose.jpg" width="132" height="53" loading="lazy" decoding="async">
+    <p>
       <strong>Research and Development Engineer Intern</strong> @ Bose<br>
       Summer 2025<br>
       • Supporting Rapid Design Engineering team in prototyping future products<br>
@@ -239,9 +397,9 @@
     </p>
   </div>
 
-  <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
-    <img src="ctpath.jpg" style="width:44px; height:44px; object-fit:contain; flex-shrink:0;">
-    <p style="margin:0;">
+  <div class="job">
+    <img src="ctpath.jpg" width="132" height="132" loading="lazy" decoding="async">
+    <p>
       <strong>Data Pipeline Engineer</strong> @
       <a href="https://www.ctpathways.com/">CommonTime Pathways</a><br>
       2024 – 2025<br>
@@ -260,8 +418,8 @@
   <h3>Ongoing</h3>
 
   <!-- 1: image left -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <img src="tam1.jpg" alt="TAM wearable device" style="width:175px;">
+  <div class="proj">
+    <img src="tam1.jpg" alt="TAM wearable device" style="width:175px;" width="246" height="262" loading="lazy" decoding="async">
     <p style="text-align:right;">
       <strong>Tracheal Acoustic Monitoring (TAM)</strong><br>
 
@@ -273,20 +431,20 @@
   </div>
 
   <!-- 2: image right -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+  <div class="proj rev">
     <p>
       <strong>BlowCoder</strong><br>
       An exploration of spectral analysis-based mouth cavity modeling for real-time control of expressive wind instrument synthesis. Built with Teensy microcontroller, sound design with Max/MSP. Plays like an EWI/vocoder hybrid. Initially completed for MUSIC 250A: Physical Interaction Design for 
       Music (Prof. Sasha Leitman), Spring 2026 at Stanford CCRMA. Currently being redesigned with a custom PCB and improved sensor array for more accurate mouth cavity modeling and enhanced playability.
     </p>
-    <img src="blowcoder1.png" alt="BlowCoder project" style="width:200px;">
+    <img src="blowcoder1.png" alt="BlowCoder project" style="width:200px;" width="600" height="273" loading="lazy" decoding="async">
   </div>
 
   <h3 style="margin-top:24px;">2026</h3>
 
   <!-- 3: image left -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <img src="ocarina.png" alt="Ocarina Synthesizer" style="width:200px;">
+  <div class="proj">
+    <img src="ocarina.png" alt="Ocarina Synthesizer" style="width:200px;" width="600" height="480" loading="lazy" decoding="async">
     <p style="text-align:right;">
       <strong><a href="ocarina.mp4">Physical Modeling Ocarina Synthesizer</a></strong><br>
       Part of a research project investigating existing physical modeling techniques for wind instrument synthesis. An interactive JUCE application for full ocarina design and control with responsive animation and a sound synthesis pipeline based on air jets and a Helmholtz resonator. Final project for CS 448Z: Physically Based Animation and Sound at Stanford University (Prof. Doug James), Spring 2026.
@@ -294,7 +452,7 @@
   </div>
 
   <!-- 4: image right -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+  <div class="proj rev">
     <p>
       <strong><a href="422paper.pdf" target="_blank">Entropy Coding for Neural Audio Codec</a></strong><br>
 
@@ -302,17 +460,17 @@
                   <br><i><b>(with: Niccolo Abate, Gabriel Soule, CCRMA)</b></i>
 
     </p>
-    <div style="width:250px; flex-shrink:0; overflow:hidden; border-radius:4px;">
-      <img src="listeningtest.png" alt="Listening Test" style="width:250px; display:block;">
-      <img src="422spec.png" alt="Spectrogram" style="width:250px; display:block;">
+    <div class="stack" style="width:250px;">
+      <img src="listeningtest.png" alt="Listening Test" style="width:250px;" width="600" height="363" loading="lazy" decoding="async">
+      <img src="422spec.png" alt="Spectrogram" style="width:250px;" width="546" height="344" loading="lazy" decoding="async">
     </div>
   </div>
 
   <!-- 5: image left -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <div style="width:225px; flex-shrink:0; overflow:hidden; border-radius:4px;">
-      <img src="rhythm.png" alt="Rhythm" style="width:225px; display:block;">
-      <img src="samples.png" alt="Samples" style="width:225px; display:block;">
+  <div class="proj">
+    <div class="stack" style="width:225px;">
+      <img src="rhythm.png" alt="Rhythm" style="width:225px;" width="600" height="207" loading="lazy" decoding="async">
+      <img src="samples.png" alt="Samples" style="width:225px;" width="370" height="135" loading="lazy" decoding="async">
     </div>
     <p style="text-align:right;">
       <strong><a href="251paper.pdf" target="_blank">Psychoacoustics of Humanization for Sample-Based Drum Grooves</a></strong><br>
@@ -323,17 +481,17 @@
   <h3 style="margin-top:24px;">2025</h3>
 
   <!-- 6: image right -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+  <div class="proj rev">
     <p>
       <strong><a href="https://ccrma.stanford.edu/~relyea/220a/fp/index.html" target="_blank">"ChucKed-On Bach"</a></strong><br>
       A project with the ChucK programming language to sequence MIDI files of multi-part Bach compositions. Inspired by Wendy Carlos' "Switched-On Bach." Completed as a final project for MUSIC 220A: Fundamentals of Computer-Generated Sound (Prof. Chris Chafe), Fall 2025 at Stanford CCRMA.
     </p>
-    <img src="bach.png" alt="ChucKed On Bach project" style="width:200px;">
+    <img src="bach.png" alt="ChucKed On Bach project" style="width:200px;" width="600" height="461" loading="lazy" decoding="async">
   </div>
 
   <!-- 7: image left -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <img src="fxnet1.png" alt="FXNet project image" style="width:250px;">
+  <div class="proj">
+    <img src="fxnet1.png" alt="FXNet project image" style="width:250px;" width="588" height="378" loading="lazy" decoding="async">
     <p style="text-align:right;">
       <strong><a href="https://colab.research.google.com/drive/1uyONUl9P51PuvWyRXfuVWNhOHDrXrdf7">FXNet: CNN for Audio Effects</a></strong><br>
       Final project for DS 340: Intro to Machine Learning and AI at Boston University, Spring 2025. An audio ML
@@ -344,7 +502,7 @@
   </div>
 
   <!-- 8: image right -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+  <div class="proj rev">
     <p>
       <strong><a href=https://github.com/chrisrelyea/MidiHero>MidiHero</a></strong><br>
       In-development JUCE plugin that allows a Guitar Hero controller to be used as a MIDI input device. In its current
@@ -352,14 +510,14 @@
       Allows the user control over which MIDI event is triggered by each fret button. Planned work includes revamped UI
       and support for more controllers.
     </p>
-    <img src="midihero.png" alt="MidiHero project image" style="width:200px;">
+    <img src="midihero.png" alt="MidiHero project image" style="width:200px;" width="600" height="446" loading="lazy" decoding="async">
   </div>
 
   <h3 style="margin-top:24px;">2024</h3>
 
   <!-- 9: image left -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <img src="alf.png" alt="ALF project image" style="width:200px;">
+  <div class="proj">
+    <img src="alf.png" alt="ALF project image" style="width:200px;" width="600" height="395" loading="lazy" decoding="async">
     <p style="text-align:right;">
       <strong><a href=https://github.com/chrisrelyea/ALF>All-Purpose Lofi Facilitator (ALF)</a></strong><br>
       JUCE VST/AU plugin for "lofi" effects, simulating physical audio formats. This was undertaken as a personal
@@ -373,7 +531,7 @@
   <h3 style="margin-top:24px;">2023</h3>
 
   <!-- 10: image right -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
+  <div class="proj rev">
     <p>
       <strong><a href=https://github.com/makbu324/Spin>Spin</a></strong><br>
 
@@ -384,12 +542,12 @@
             <i><b>(with: Jonah Musher-Eizenman, Wai Lun Mak, Boston University)</b></i>
 
     </p>
-    <img src="spin.jpeg" alt="Spin project image" style="width:250px;">
+    <img src="spin.jpeg" alt="Spin project image" style="width:250px;" width="600" height="371" loading="lazy" decoding="async">
   </div>
 
   <!-- 11: image left -->
-  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px;">
-    <img src="drummer.png" alt="PyDrummer project image" style="width:225px;">
+  <div class="proj">
+    <img src="drummer.png" alt="PyDrummer project image" style="width:225px;" width="600" height="300" loading="lazy" decoding="async">
     <p style="text-align:right;">
       <strong><a href=https://github.com/chrisrelyea/pydrummer>PyDrummer</a></strong><br>
       Simple drum machine made with Python and the Pygame library. 16 beats, three sounds, adjustable BPM.
@@ -422,22 +580,93 @@
 
       <!-- Recording -->
       <section id="recording">
-        <p>coming soon!</p>
+        <h3>Recording Portfolio</h3>
+        <p>Here, you can find some examples of my recording and mixing work. I've spent considerable time in the studio supporting fellow student musicians of various styles and genres. I'm always chasing good sound, and I'm always looking for ways to improve my craft.</p>
+        <p>All excerpts recorded and mixed by me, with help from others where noted.</p>
+
+        <div class="rec">
+          <div class="rec-title">Gustav Schreck &mdash; <i>Bassoon Sonata</i>, Op. 9 (1887), mvt. 2, Largo</div>
+          <div class="rec-meta">Teddy Zhang, bassoon &middot; Kwiyoum Lee, piano &middot; 6:04</div>
+          <div class="rec-meta">CCRMA recording studio</div>
+          <audio controls preload="metadata">
+            <source src="recordings/bassoon1.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+            <a href="recordings/bassoon1.mp3">Download &ldquo;Bassoon Sonata, Op. 9, mvt. 2&rdquo; (mp3)</a>
+          </audio>
+        </div>
+
+        <div class="rec">
+          <div class="rec-title">Claude Debussy &mdash; <i>&Eacute;tude No. 8, &ldquo;pour les agr&eacute;ments&rdquo;</i></div>
+          <div class="rec-meta">Simon Blanch, piano &middot; 5:00</div>
+          <div class="rec-meta">CCRMA recording studio</div>
+          <audio controls preload="metadata">
+            <source src="recordings/etude-8.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+            <a href="recordings/etude-8.mp3">Download &ldquo;Étude No. 8&rdquo; (mp3)</a>
+          </audio>
+        </div>
+
+        <div class="rec">
+          <div class="rec-title">Marmalade &mdash; <i>Voyage In Love</i></div>
+          <div class="rec-meta">Band's original composition &middot; Student group at Stanford University &middot; 4:01</div>
+          <div class="rec-meta">CCRMA recording studio &middot; recording and mixing with help from Micha&euml;l Dooley</div>
+          <audio controls preload="metadata">
+            <source src="recordings/voyage.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+            <a href="recordings/voyage.mp3">Download &ldquo;Voyage In Love&rdquo; (mp3)</a>
+          </audio>
+        </div>
+
+        <div class="rec">
+          <div class="rec-title">Antti &amp; the Tastebuds &mdash; <i>Down to the Waterline</i></div>
+          <div class="rec-meta">Dire Straits cover &middot; Student group at Stanford University &middot; 4:47</div>
+          <div class="rec-meta">CCRMA recording studio &middot; recording and mixing with help from Micha&euml;l Dooley</div>
+          <audio controls preload="metadata">
+            <source src="recordings/waterline.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+            <a href="recordings/waterline.mp3">Download &ldquo;Down to the Waterline&rdquo; (mp3)</a>
+          </audio>
+        </div>
       </section>
     </div>
   </div>
 
   <script>
-    function showSection(sectionId, button) {
-      // hide all sections
-      document.querySelectorAll('.content section').forEach(sec => sec.classList.remove('active'));
-      // show selected section
-      document.getElementById(sectionId).classList.add('active');
+    const navButtons = document.querySelectorAll('.nav-button');
 
-      // update nav buttons
-      document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+    function showSection(sectionId) {
+      // fall back to about for an unknown or empty hash
+      const id = document.getElementById(sectionId) ? sectionId : 'about';
+
+      document.querySelectorAll('.content section')
+        .forEach(sec => sec.classList.toggle('active', sec.id === id));
+
+      navButtons.forEach(btn => {
+        const on = btn.dataset.section === id;
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-current', on ? 'page' : 'false');
+      });
     }
+
+    navButtons.forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.dataset.section;
+      // pushState rather than location.hash so the browser does not jump-scroll
+      if (location.hash.slice(1) !== id) history.pushState({ section: id }, '', '#' + id);
+      showSection(id);
+    }));
+
+    // back/forward, and hand-edited hashes
+    window.addEventListener('popstate', () => showSection(location.hash.slice(1)));
+    window.addEventListener('hashchange', () => {
+      showSection(location.hash.slice(1));
+      window.scrollTo(0, 0);
+    });
+
+    // deep link on first load. The hash matches a section id, so the browser
+    // would otherwise anchor-jump past the header -- pin it back to the top.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    showSection(location.hash.slice(1));
+    window.addEventListener('load', () => window.scrollTo(0, 0));
   </script>
 
 </body>
