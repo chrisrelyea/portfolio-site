@@ -48,7 +48,9 @@
       /* zoomed-in spectrogram under a dark purple scrim so the white title stays legible */
       background:
         linear-gradient(to right, rgba(20, 0, 40, 0.75) 0%, rgba(20, 0, 40, 0.55) 55%, rgba(20, 0, 40, 0.4) 100%),
-        url("spec.png") 20% 30% / 260% auto no-repeat;
+        /* tiled by height (not stretched to the window width) so it stays sharp on wide
+           screens; the tile is the spectrogram plus a mirrored copy, so repeats are seamless */
+        url("spec-tile.jpg") 0 18% / auto 300% repeat-x;
       background-color: rgb(40, 1, 47);
       color: white;
     }
@@ -234,7 +236,6 @@
     @media (max-width: 760px) {
       .header {
         padding: 28px 20px 22px;
-        background-size: auto 180%;
       }
 
       .name {
