@@ -69,6 +69,8 @@
     .tagline {
       font-size: 1.2em;
       color: #fff;
+      /* keep the ticker's trailing space and stop it wrapping as it rotates */
+      white-space: pre;
     }
 
     .main {
@@ -677,6 +679,28 @@
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     showSection(location.hash.slice(1));
     window.addEventListener('load', () => window.scrollTo(0, 0));
+
+    // tagline ticker: rotate the text one character to the left per tick,
+    // so it scrolls leftward in a seamless loop. Only a fixed window of
+    // characters is shown, so the gap can be long without widening the strip.
+    const tagline = document.querySelector('.tagline');
+    if (tagline && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const full = tagline.textContent.trim();
+      tagline.setAttribute('aria-label', full);  // screen readers get the plain text
+      const GAP = 15;                 // blank characters between "games" and "audio"
+      const WINDOW = full.length + 5;  // characters visible at once
+      const STEP = 300;    // ms per character
+      const PAUSE = 2000; // ms to hold when the text is back at its starting position
+      const ticker = full + ' '.repeat(GAP);
+      let offset = 0;
+      const tick = () => {
+        offset = (offset + 1) % ticker.length;
+        const rotated = ticker.slice(offset) + ticker.slice(0, offset);
+        tagline.textContent = rotated.slice(0, WINDOW);
+        setTimeout(tick, offset === 0 ? PAUSE : STEP);
+      };
+      setTimeout(tick, PAUSE);  // the page starts in the original position, so hold first
+    }
   </script>
 
 </body>
