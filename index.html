@@ -49,8 +49,10 @@
       background:
         linear-gradient(to right, rgba(20, 0, 40, 0.75) 0%, rgba(20, 0, 40, 0.55) 55%, rgba(20, 0, 40, 0.4) 100%),
         /* tiled by height (not stretched to the window width) so it stays sharp on wide
-           screens; the tile is the spectrogram plus a mirrored copy, so repeats are seamless */
-        url("spec-tile.jpg") 0 18% / auto 300% repeat-x;
+           screens. The tile is the top half of the spectrogram (above the bright centre
+           line) plus a mirrored copy, so repeats are seamless; shown near native size so
+           it is not upscaled on retina displays */
+        url("spec-tile.jpg") 0 0 / auto 100% repeat-x;
       background-color: rgb(40, 1, 47);
       color: white;
     }
