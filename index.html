@@ -30,7 +30,6 @@
   <meta name="twitter:image" content="https://www.chrisrelyea.dev/og-image.png">
   <style>
     body {
-      /* Helvetica on macOS, Arial on Windows -- what sans-serif already resolved to */
       font-family: Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -45,34 +44,31 @@
 
     /* full-bleed banner */
     .header {
-      padding: 22px 40px;
+      padding: 40px 60px 34px;
+      /* zoomed-in spectrogram under a dark purple scrim so the white title stays legible */
       background:
-        linear-gradient(to bottom, rgba(0, 0, 56, 0) 0%, rgba(0, 0, 56, 0) 77.15%, rgba(0, 0, 56, 0.104) 100%),
-        radial-gradient(38.13% 85% at 99.9% 102.27%, rgba(255, 25, 0, 0.375) 0%, rgba(255, 25, 0, 0) 100%),
-        linear-gradient(to right,
-        rgb(126, 1, 51) 0%, rgb(105, 1, 53) 5.634%, rgb(84, 1, 56) 11.27%, rgb(64, 1, 57) 16.9%,
-        rgb(51, 1, 56) 22.54%, rgb(48, 1, 54) 28.17%, rgb(46, 0, 51) 33.8%, rgb(40, 1, 47) 39.44%,
-        rgb(33, 1, 42) 45.07%, rgb(24, 1, 38) 50.7%, rgb(13, 1, 33) 56.34%, rgb(4, 0, 30) 61.97%,
-        rgb(6, 0, 29) 67.61%, rgb(15, 0, 28) 73.24%, rgb(24, 0, 27) 78.87%, rgb(34, 0, 27) 84.51%,
-        rgb(46, 0, 26) 90.14%, rgb(58, 0, 24) 95.77%, rgb(67, 0, 23) 100%);
+        linear-gradient(to right, rgba(20, 0, 40, 0.75) 0%, rgba(20, 0, 40, 0.55) 55%, rgba(20, 0, 40, 0.4) 100%),
+        url("spec.png") 20% 30% / 260% auto no-repeat;
+      background-color: rgb(40, 1, 47);
       color: white;
     }
 
     .title-block {
       display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px 10px;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .name {
-      font-size: 2em;
+      font-size: 3em;
       font-weight: bold;
+      line-height: 1;
+      letter-spacing: -0.01em;
     }
 
     .tagline {
       font-size: 1.2em;
-      color: #eee;
+      color: #fff;
     }
 
     .main {
@@ -81,8 +77,11 @@
 
     .sidebar {
       width: 200px;
-      padding: 30px 0 0 40px;
+      padding: 30px 20px 30px 40px;
       box-sizing: border-box;
+      background-color: #ececec;
+      /* only as tall as its own links, not stretched to the section's height */
+      align-self: flex-start;
     }
 
     .content {
@@ -91,7 +90,6 @@
       box-sizing: border-box;
       max-width: 700px;
       margin-left: 20px;
-      background-color: #ececec;
     }
 
     .content p {
@@ -121,7 +119,6 @@
       width: 120px;
       flex-shrink: 0;
       overflow: hidden;
-      border-radius: 4px;
     }
 
     .bio-photo img {
@@ -234,11 +231,12 @@
     /* --- narrow screens --- */
     @media (max-width: 760px) {
       .header {
-        padding: 18px 20px;
+        padding: 28px 20px 22px;
+        background-size: auto 180%;
       }
 
       .name {
-        font-size: 1.6em;
+        font-size: 2.4em;
       }
 
       .tagline {
@@ -251,7 +249,7 @@
 
       .sidebar {
         width: auto;
-        padding: 12px 20px 0;
+        padding: 12px 20px;
         display: flex;
         flex-wrap: wrap;
         gap: 2px;
@@ -374,7 +372,7 @@
     <p>
       <strong>Audio Software Engineer Intern</strong> @ Nintendo Technology Development (NTD)<br>
       Summer 2026<br>
-      • Audio firmware optimization<br>
+      • Audio firmware optimization for the Switch 2<br>
     </p>
   </div>
 
